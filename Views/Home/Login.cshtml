@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>backstage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://imodathailand.com/public/admin/js/bootstrap.min.js"></script>
+    <link href="https://imodathailand.com/public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://imodathailand.com/public/admin/css/styles.css" rel="stylesheet">
+</head>
+<body class="login-bg">
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-wrapper">
+                    <div class="box">
+                        <div class="content-wrap">
+                            <form method="POST">
+                                <h4>backstage</h4>
+                                <input name="account" class="form-control" type="text" placeholder="please enter your account" required />
+                                <input name="password" class="form-control" type="password" placeholder="please enter your password" required />
+                                <div>
+                                    <button type="submit" class="btn btn-primary signup"><i class="glyphicon glyphicon-log-in"></i> login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+    </script>
+}

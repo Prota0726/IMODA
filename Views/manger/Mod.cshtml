@@ -1,0 +1,89 @@
+﻿@model IMODA.ViewModels.MangerModViewModel
+
+@{
+    ViewBag.Title = "Mod";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Backstage Management > Modify</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <!-- /.card -->
+            <div class="card">
+                @*<div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div>*@
+                <!-- /.card-header -->
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @*<h4>MangerModViewModel</h4>*@
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+                        @*@Html.HiddenFor(model => model.RoleData)*@
+                        @Html.HiddenFor(model => model.MangerData.id)
+                        @Html.HiddenFor(model => model.MangerData.c_id)
+                        @Html.HiddenFor(model => model.MangerData.c_time)
+                        @Html.HiddenFor(model => model.MangerData.u_id)
+                        @Html.HiddenFor(model => model.MangerData.u_time)
+                        @Html.HiddenFor(model => model.MangerData.password)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MangerData.account, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.MangerData.account, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MangerData.account, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MangerData.manger_class, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.MangerData.manger_class, Model.RoleData)
+                                @Html.ValidationMessageFor(model => model.MangerData.manger_class, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MangerData.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.MangerData.name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MangerData.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MangerData.remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.MangerData.remark, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MangerData.remark, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMODA", "IMODA.csproj", "{5A29D4DD-C5AE-48BF-AE6C-B25979269932}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A29D4DD-C5AE-48BF-AE6C-B25979269932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A29D4DD-C5AE-48BF-AE6C-B25979269932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A29D4DD-C5AE-48BF-AE6C-B25979269932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A29D4DD-C5AE-48BF-AE6C-B25979269932}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5E219B3-289A-4B1E-8C62-8166FF7EFEA5}
+	EndGlobalSection
+EndGlobal

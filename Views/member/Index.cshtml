@@ -1,0 +1,126 @@
+﻿@model IEnumerable<IMODA.Models.member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Memember Management</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- /.card -->
+
+            <div class="card">
+                @*<div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div>*@
+                <!-- /.card-header -->
+                <div class="card-body">
+                    @using (Html.BeginForm("Index", "member", FormMethod.Post))
+                    {
+                        <button type="submit" value="Delete" class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o"></i> Delete</button>
+                        <br /><br />
+                        <table style="text-align:center;" id="example1" class="display">
+                            <thead>
+                                <tr>
+
+                                    <th>@Html.DisplayNameFor(model => model.id)</th>
+                                    <th>@Html.DisplayNameFor(model => model.name)</th>
+                                    <th>@Html.DisplayNameFor(model => model.level)</th>
+                                    <th>@Html.DisplayNameFor(model => model.birthday)</th>
+                                    <th>@Html.DisplayNameFor(model => model.phone)</th>
+                                    
+                                    <th>modify</th>
+                                    <th>
+                                        select all <input type="checkbox" id="checkBoxAll" class="custom-checkbox" />
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.level)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.birthday)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.phone)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("modify", "Mod", new { account = item.account ,email=item.email})
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="ID" value="@item.id" class="custom-checkbox chkCheckBoxId" />
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                            
+                        </table>
+                    }
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- jQuery -->
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+@*<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>*@
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+    $(document).ready(function () {
+        $("#example1").DataTable({
+            "paging": true,
+            "responsive": true,
+            "autoWidth": false,
+            "ordering": true,
+            "info": true,
+            "responsive": true,
+        });
+        $('#checkBoxAll').click(function () {
+                if ($(this).is(":checked")) {
+                    $(".chkCheckBoxId").prop("checked", true)
+                }
+                else {
+                    $(".chkCheckBoxId").prop("checked", false)
+                }
+        });
+    });
+</script>
+

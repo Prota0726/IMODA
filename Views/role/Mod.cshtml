@@ -1,0 +1,99 @@
+﻿@model IMODA.ViewModels.RoleModViewModel
+@{
+    ViewBag.Title = "Mod";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Role Management > Modify</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <!-- /.card -->
+            <div class="card">
+                @*<div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div>*@
+                <!-- /.card-header -->
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @*<h4>Name</h4>*@
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+                        @Html.HiddenFor(model => model.roledata.id)
+                        @Html.HiddenFor(model => model.roledata.c_time)
+                        @Html.HiddenFor(model => model.roledata.c_id)
+                        @Html.HiddenFor(model => model.roledata.u_time)
+                        @Html.HiddenFor(model => model.roledata.u_id)
+                        @Html.HiddenFor(model => model.roledata.role_class , new { @Value = "1" })
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.roledata.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.roledata.name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.roledata.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.roledata.remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.roledata.remark, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.roledata.remark, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.roledata.role_class, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @foreach (var item in Model.PermissionsCollection)
+                                {
+                                    <input type="checkbox" name="role_class" value="@item.id" />@item.name
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<script>
+    var array= new Array();
+    $(":checkbox").on("change",function(){
+        var $checkbox = $(this);
+        console.log($('input:checked').length);
+        array.push($(this).val());
+        //alert(array.join(','));
+        $('input[name="roledata.role_class"]').val(array.join(','));
+    });
+
+</script>
+
