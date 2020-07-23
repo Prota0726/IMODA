@@ -41,7 +41,6 @@
     <EntitySet Name="permission" EntityType="test1Model.permission" />
     <EntitySet Name="product" EntityType="test1Model.product" />
     <EntitySet Name="product_category" EntityType="test1Model.product_category" />
-    <EntitySet Name="product_class" EntityType="test1Model.product_class" />
     <EntitySet Name="product_class1" EntityType="test1Model.product_class1" />
     <EntitySet Name="product_class2" EntityType="test1Model.product_class2" />
     <EntitySet Name="product_img" EntityType="test1Model.product_img" />
@@ -67,6 +66,7 @@
     <EntitySet Name="role" EntityType="test1Model.role" />
     <EntitySet Name="question_category" EntityType="test1Model.question_category" />
     <EntitySet Name="question_set" EntityType="test1Model.question_set" />
+    <EntitySet Name="product_class" EntityType="test1Model.product_class" />
   </EntityContainer>
   <EntityType Name="about">
     <Key>
@@ -454,39 +454,6 @@
     <Property Name="product_id" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="class_id" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="product_class">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="c_time" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="c_id" Type="Int32" Nullable="false" />
-    <Property Name="u_time" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="u_id" Type="Int32" Nullable="false" />
-    <Property Name="switch" Type="Int32" Nullable="false" />
-    <Property Name="sort" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner_url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner_url1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner_url2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img_url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img_url1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img_url2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img3" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img_url3" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img4" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="img_url4" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="banner_action" Type="Int32" Nullable="false" />
-    <Property Name="img_action" Type="Int32" Nullable="false" />
-    <Property Name="index_" Type="Int32" Nullable="false" />
-    <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="product_class1">
     <Key>
       <PropertyRef Name="id" />
@@ -812,5 +779,38 @@
     <Property Name="en_content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="th_title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="th_content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="product_class">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="c_id" Type="Int32" Nullable="false" />
+    <Property Name="u_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="u_id" Type="Int32" Nullable="false" />
+    <Property Name="switch" Type="Int32" Nullable="false" />
+    <Property Name="sort" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner_url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner_url1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner_url2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img_url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img_url1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img_url2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img3" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img_url3" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img4" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="img_url4" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="banner_action" Type="Int32" Nullable="false" />
+    <Property Name="img_action" Type="Int32" Nullable="false" />
+    <Property Name="index_" Type="Int32" Nullable="false" />
+    <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="test1Model.permission" Width="1.5" PointX="14.75" PointY="0.75" />
         <EntityTypeShape EntityType="test1Model.product" Width="1.5" PointX="14.75" PointY="3.75" />
         <EntityTypeShape EntityType="test1Model.product_category" Width="1.5" PointX="3.75" PointY="14.75" />
-        <EntityTypeShape EntityType="test1Model.product_class" Width="1.5" PointX="5.75" PointY="14.75" />
         <EntityTypeShape EntityType="test1Model.product_class1" Width="1.5" PointX="14.75" PointY="12.75" />
         <EntityTypeShape EntityType="test1Model.product_class2" Width="1.5" PointX="0.75" PointY="15.75" />
         <EntityTypeShape EntityType="test1Model.product_img" Width="1.5" PointX="11.75" PointY="15.75" />
@@ -56,6 +55,7 @@
         <EntityTypeShape EntityType="test1Model.role" Width="1.5" PointX="5.375" PointY="21.75" />
         <EntityTypeShape EntityType="test1Model.question_category" Width="1.5" PointX="21.375" PointY="6.75" />
         <EntityTypeShape EntityType="test1Model.question_set" Width="1.5" PointX="21.375" PointY="9.75" />
+        <EntityTypeShape EntityType="test1Model.product_class" Width="1.5" PointX="14.375" PointY="21.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

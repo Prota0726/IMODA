@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -45,11 +46,19 @@ namespace IMODA.Controllers
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
+
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,c_time,c_id,u_time,u_id,switch,sort,name,banner,banner_url,banner1,banner_url1,banner2,banner_url2,img,img_url,img1,img_url1,img2,img_url2,img3,img_url3,img4,img_url4,banner_action,img_action,index_,remark")] product_class product_class)
+        public ActionResult Create([Bind(Include = "id,c_time,c_id,u_time,u_id,switch,sort,name,banner,banner_url,banner1,banner_url1,banner2,banner_url2,img,img_url,img1,img_url1,img2,img_url2,img3,img_url3,img4,img_url4,banner_action,img_action,index_,remark")] product_class product_class , HttpPostedFileBase file_banner)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid && file_banner != null)
+            if (file_banner != null)
             {
+                if (file_banner.ContentLength > 0)
+                {
+                    string path = Path.Combine(Server.MapPath("~/image/product_class/"), file_banner.FileName);
+                    file_banner.SaveAs(path);
+                }
+                product_class.banner = file_banner.FileName;
                 db.product_class.Add(product_class);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -11,17 +11,14 @@ namespace IMODA.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
-
+    
     public partial class question_set
     {
         public int id { get; set; }
         public int extends { get; set; }
         public string en_title { get; set; }
-        [AllowHtml]
         public string en_content { get; set; }
         public string th_title { get; set; }
-        [AllowHtml]
         public string th_content { get; set; }
     }
 }

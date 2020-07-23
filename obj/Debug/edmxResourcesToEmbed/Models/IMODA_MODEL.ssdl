@@ -398,6 +398,8 @@
     <Property Name="nav" Type="int" Nullable="false" />
     <Property Name="item" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'test1.dbo.product' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
   <EntityType Name="product">
     <Key>
       <PropertyRef Name="id" />
@@ -456,7 +458,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="c_time" Type="datetime" Nullable="false" />
     <Property Name="c_id" Type="int" Nullable="false" />
     <Property Name="u_time" Type="datetime" Nullable="false" />
@@ -790,7 +792,6 @@
     <EntitySet Name="order_" EntityType="Self.order_" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="order_detail" EntityType="Self.order_detail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="permission" EntityType="Self.permission" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product_category" EntityType="Self.product_category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product_class" EntityType="Self.product_class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product_class1" EntityType="Self.product_class1" Schema="dbo" store:Type="Tables" />
@@ -826,6 +827,49 @@
     [currency].[twd_max] AS [twd_max], 
     [currency].[thb] AS [thb]
     FROM [dbo].[currency] AS [currency]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="product" EntityType="Self.product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [product].[id] AS [id], 
+    [product].[p_id] AS [p_id], 
+    [product].[c_time] AS [c_time], 
+    [product].[c_id] AS [c_id], 
+    [product].[u_time] AS [u_time], 
+    [product].[u_id] AS [u_id], 
+    [product].[switch] AS [switch], 
+    [product].[sort] AS [sort], 
+    [product].[th_name] AS [th_name], 
+    [product].[en_name] AS [en_name], 
+    [product].[ch_name] AS [ch_name], 
+    [product].[class] AS [class], 
+    [product].[categoryno] AS [categoryno], 
+    [product].[categoryid1] AS [categoryid1], 
+    [product].[categoryid2] AS [categoryid2], 
+    [product].[producturl] AS [producturl], 
+    [product].[bigimage] AS [bigimage], 
+    [product].[smallimage] AS [smallimage], 
+    [product].[rectangleimage] AS [rectangleimage], 
+    [product].[price] AS [price], 
+    [product].[discountedprice] AS [discountedprice], 
+    [product].[th_description] AS [th_description], 
+    [product].[en_description] AS [en_description], 
+    [product].[ch_description] AS [ch_description], 
+    [product].[descriptionUrl] AS [descriptionUrl], 
+    [product].[stock] AS [stock], 
+    [product].[collocationProduct] AS [collocationProduct], 
+    [product].[sourcingCategory] AS [sourcingCategory], 
+    [product].[product_type] AS [product_type], 
+    [product].[season] AS [season], 
+    [product].[season1] AS [season1], 
+    [product].[sizetable] AS [sizetable], 
+    [product].[applinks] AS [applinks], 
+    [product].[overseas] AS [overseas], 
+    [product].[remark] AS [remark], 
+    [product].[index_sg] AS [index_sg], 
+    [product].[ch_sizetable] AS [ch_sizetable], 
+    [product].[th_sizetable] AS [th_sizetable], 
+    [product].[en_sizetable] AS [en_sizetable]
+    FROM [dbo].[product] AS [product]</DefiningQuery>
     </EntitySet>
   </EntityContainer>
 </Schema>

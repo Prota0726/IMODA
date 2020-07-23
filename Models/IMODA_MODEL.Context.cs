@@ -50,7 +50,6 @@ namespace IMODA.Models
         public virtual DbSet<permission> permission { get; set; }
         public virtual DbSet<product> product { get; set; }
         public virtual DbSet<product_category> product_category { get; set; }
-        public virtual DbSet<product_class> product_class { get; set; }
         public virtual DbSet<product_class1> product_class1 { get; set; }
         public virtual DbSet<product_class2> product_class2 { get; set; }
         public virtual DbSet<product_img> product_img { get; set; }
@@ -76,5 +75,6 @@ namespace IMODA.Models
         public virtual DbSet<role> role { get; set; }
         public virtual DbSet<question_category> question_category { get; set; }
         public virtual DbSet<question_set> question_set { get; set; }
+        public virtual DbSet<product_class> product_class { get; set; }
     }
 }

@@ -47,10 +47,16 @@ namespace IMODA.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,c_time,c_id,u_time,u_id,switch,sort,top_,banner1,center,under,img,url,action,remark")] banner banner)
+        public ActionResult Create([Bind(Include = "id,c_time,c_id,u_time,u_id,switch,sort,top_,banner1,center,under,img,url,action,remark")] banner banner, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && file != null)
             {
+                if (file.ContentLength > 0)
+                {
+                    string path = Path.Combine(Server.MapPath("~/image/banner/"), file.FileName);
+                    file.SaveAs(path);
+                }
+                banner.img = file.FileName;
                 db.banner.Add(banner);
                 db.SaveChanges();
                 return RedirectToAction("Index");
